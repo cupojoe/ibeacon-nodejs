@@ -1,21 +1,23 @@
-# node-js-sample
+# nodejs/Express/MongoDB app to record iBeacon ranging
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+This app saves requests from an iOS app with iBeacon info based on ranging events and saves them to a mongoDB database. [Express 4](http://expressjs.com/).
 
 ## Running Locally
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+Make sure you have [Node.js](http://nodejs.org/)
 
 ```sh
-git clone git@github.com:heroku/node-js-sample.git # or clone your own fork
-cd node-js-sample
+git clone git@github.com:cupojoe/ibeacon-nodejs.git # or clone your own fork
+cd ibeacon-nodejs
 npm install
-npm start
+node start
 ```
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## Deploying to Heroku
+## Deploying to Heroku (not required, you can deploy to other servers as long as you have node.js installed)
+
+For this part you need the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
 
 ```
 heroku create
