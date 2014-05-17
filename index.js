@@ -1,13 +1,12 @@
-var express = require('express')
-var app = express();
+var restify = require('restify');
+var saveEnterInRage = require('./routes/ranging/enter');
 
-app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/public'))
+var server = restify.createServer();
 
-app.get('/', function(request, response) {
-  response.send('Hello World!')
-})
+server.use(restify.bodyParser());
+server.post('/ranging/enter', saveEnterInRage);
+server.pre(restify.pre.userAgentConnection());
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'))
-})
+server.listen(8080, function() {
+  console.log('%s listening at %s', server.name, server.url);
+});

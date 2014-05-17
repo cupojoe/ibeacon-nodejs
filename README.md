@@ -1,10 +1,10 @@
-# nodejs/Express/MongoDB app to record iBeacon ranging
+# nodejs/restify/MongoDB app to record iBeacon ranging
 
-This app saves requests from an iOS app with iBeacon info based on ranging events and saves them to a mongoDB database. [Express 4](http://expressjs.com/).
+This app saves requests from an iOS app with iBeacon info based on ranging events and saves them to a mongoDB database.
 
 ## Running Locally
 
-Make sure you have [Node.js](http://nodejs.org/)
+Make sure you have [Node.js](http://nodejs.org/) and [MongoDB](http://mongodb.org/)
 
 ```sh
 git clone git@github.com:cupojoe/ibeacon-nodejs.git # or clone your own fork

@@ -1,29 +1,31 @@
 {
-  "name": "node-js-sample",
+  "name": "ibeacon-nodejs",
   "version": "0.1.0",
-  "description": "A sample Node.js app using Express 4",
+  "description": "App to record iBeacon ranging onto a mongoDB",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.0.0"
+    "mongodb": "^1.4.4",
+    "monk": "^0.9.0",
+    "restify": "^2.8.1"
   },
   "engines": {
     "node": "0.10.x"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-sample"
+    "url": "https://github.com/cupojoe/ibeacon-nodejs"
   },
   "keywords": [
     "node",
-    "heroku",
-    "express"
+    "mongodb",
+    "restify"
   ],
-  "author": "Mark Pundsack",
+  "author": "Joe Fraga",
   "contributors": [
-    "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)"
+    "Tamara Bowman"
   ],
   "license": "MIT"
 }
