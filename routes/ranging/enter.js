@@ -7,7 +7,7 @@ module.exports = function (req, res, next) {
   // Set our collection
   var collection = db.get('enterrangecollection');
 
-  console.log('%s', req.params);
+  console.log('%j', req.params);
 
   // Submit to the DB
   collection.insert({
