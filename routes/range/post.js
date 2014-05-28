@@ -1,8 +1,8 @@
 var db = require('../../database-scripts/init').getDB();
 
 module.exports = function (req, res, next) {
-  //res.header("Access-Control-Allow-Origin", "*");
-  //res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
   // Create a new message model, fill it up and save it to Mongodb
   // Set our collection
   var collection = db.get('rangeupdates');
@@ -25,6 +25,13 @@ module.exports = function (req, res, next) {
           res.send(500, 'There was a problem adding the information to the database.');
       }
       else {
+          console.log('update ' + req.params.uid);
+          var ucollection = db.get('users');
+          ucollection.update({"deviceid": req.params.uid}, {$set: { "state": req.params.state}},
+            function(err, doc) {
+              console.log('Updated user ' + req.params.uid + ' to state ' + req.params.state);
+            }
+          );
           // Send success header
           console.log('Respond 200');
           res.send(200);
