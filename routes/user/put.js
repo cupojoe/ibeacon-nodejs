@@ -7,6 +7,7 @@ module.exports = function (req, res, next) {
   // Set our collection
   var collection = db.get('users');
   console.log('%j', req.params);
+  req.params['state'] = 'CLRegionStateOutside';
 
   // Search the the DB
   collection.find({

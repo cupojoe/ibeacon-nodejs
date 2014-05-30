@@ -1,4 +1,5 @@
 var db = require('../../database-scripts/init').getDB();
+var io = require('../../socket').getSocket();
 
 module.exports = function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -6,8 +7,6 @@ module.exports = function (req, res, next) {
   // Create a new message model, fill it up and save it to Mongodb
   // Set our collection
   var collection = db.get('rangeupdates');
-
-  console.log('%j', req.params);
 
   // Submit to the DB
   collection.insert({
@@ -27,8 +26,9 @@ module.exports = function (req, res, next) {
       else {
           console.log('update ' + req.params.uid);
           var ucollection = db.get('users');
-          ucollection.update({"deviceid": req.params.uid}, {$set: { "state": req.params.state}},
+          ucollection.update({"deviceid": req.params.uid}, {$set: { "state": req.params.state, "date": req.params.date}},
             function(err, doc) {
+              io.sockets.emit('update-user', {"deviceid": req.params.uid, "state": req.params.state, "date": req.params.date});
               console.log('Updated user ' + req.params.uid + ' to state ' + req.params.state);
             }
           );
