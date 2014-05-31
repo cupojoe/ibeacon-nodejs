@@ -10,7 +10,8 @@
     "mongodb": "^1.4.4",
     "monk": "^0.9.0",
     "restify": "^2.8.1",
-    "socket.io": "^0.9.17"
+    "socket.io": "^0.9.17",
+    "forever": "~0.11.1"
   },
   "engines": {
     "node": "0.10.x"
