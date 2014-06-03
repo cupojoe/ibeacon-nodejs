@@ -26,9 +26,13 @@ module.exports = function (req, res, next) {
       else {
           console.log('update ' + req.params.uid);
           var ucollection = db.get('users');
-          ucollection.update({"deviceid": req.params.uid}, {$set: { "state": req.params.state, "date": req.params.date}},
+        
+          ucollection.findAndModify(
+            {"deviceid": req.params.uid}, 
+            {$set: { "state": req.params.state, "date": req.params.date}}, 
+            {new: true}, 
             function(err, doc) {
-              io.sockets.emit('update-user', {"deviceid": req.params.uid, "state": req.params.state, "date": req.params.date});
+              io.sockets.emit('update-user', doc);
               console.log('Updated user ' + req.params.uid + ' to state ' + req.params.state);
             }
           );
