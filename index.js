@@ -6,6 +6,7 @@ var postRangeUpdate = require('./routes/range/post');
 var getUser = require('./routes/user/get');
 var putUser = require('./routes/user/put');
 var getAllStatuses = require('./routes/states/get-all');
+var getPractices = require('./routes/practices/get');
 
 //var io = socketio.listen(server);
 
@@ -13,6 +14,7 @@ server.use(restify.bodyParser());
 server.post('/range/post', postRangeUpdate);
 server.get('/user/:deviceid/get', getUser);
 server.put('/user/put', putUser);
+server.get('/practices/get', getPractices);
 server.pre(restify.pre.userAgentConnection());
 
 io.sockets.on('connection', getAllStatuses);
