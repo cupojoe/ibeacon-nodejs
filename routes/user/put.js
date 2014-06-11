@@ -7,7 +7,7 @@ module.exports = function (req, res, next) {
   // Set our collection
   var collection = db.get('users');
   console.log('%j', req.params);
-  req.params['state'] = 'CLRegionStateOutside';
+  req.params['state'] = 'exit';
 
   // Search the the DB
   collection.find({
@@ -22,6 +22,7 @@ module.exports = function (req, res, next) {
     else {
       console.log('%j', doc);
       if (doc.length > 0) {
+        req.params.state = doc[0].state;
         promise = collection.updateById(doc[0]._id, req.params);
         promise.on('error', function(err){
           res.send(500, err);
