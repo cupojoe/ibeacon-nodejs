@@ -12,17 +12,18 @@ module.exports = function (req, res, next) {
   collection.find({
       "deviceid" : req.params.deviceid
   }, function (err, doc) {
+      console.log('Mongo returned something');
       if (err) {
           // If it failed, return error
-          //console.log('Respond 500');
+          console.log('Respond 500');
           res.send(500, 'There was a problem finding the information in the database.');
       }
       else {
-        //console.log('%j', doc);
+        console.log('%j', doc);
         if (doc.length > 0) {
           res.send(doc[0]);
         } else {
-          //console.log('Respond 204: Content Not Found');
+          console.log('Respond 204: Content Not Found');
           res.send(204);
         }
       }
