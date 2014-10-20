@@ -1,0 +1,6 @@
+{
+    "dbUserName": "agny",
+    "dbPassword": "Acquity1",
+    "dbURL": "ds037990.mongolab.com:37990/ibeacon",
+    "dbProtocol": "mongodb://"
+}
