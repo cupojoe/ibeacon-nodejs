@@ -25,7 +25,7 @@ module.exports = function (req, res, next) {
           res.send(doc[0]);
         } else {
           console.log('Respond 204: Content Not Found');
-          res.send({'error': '204'});
+          res.send(204);
         }
       }
   });
