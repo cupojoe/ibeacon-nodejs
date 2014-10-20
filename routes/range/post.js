@@ -1,4 +1,4 @@
-var db = require('../../database-scripts/init').getDB();
+var db = require('../../database/init');
 var io = require('../../socket').getSocket();
 
 module.exports = function (req, res, next) {

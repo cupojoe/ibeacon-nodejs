@@ -1,4 +1,4 @@
-var db = require('../../database-scripts/init').getDB();
+var db = require('../../database/init');
 
 module.exports = function (socket) {
   // Set our collection
