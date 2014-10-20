@@ -1,4 +1,4 @@
-var db = require('../../database/init');
+var db = require('../../database/init').db();
 var io = require('../../socket').getSocket();
 
 module.exports = function (req, res, next) {
@@ -26,11 +26,11 @@ module.exports = function (req, res, next) {
       else {
           console.log('update ' + req.params.uid);
           var ucollection = db.get('users');
-        
+
           ucollection.findAndModify(
-            {"deviceid": req.params.uid}, 
-            {$set: { "state": req.params.state, "date": req.params.date}}, 
-            {new: true}, 
+            {"deviceid": req.params.uid},
+            {$set: { "state": req.params.state, "date": req.params.date}},
+            {new: true},
             function(err, doc) {
               io.sockets.emit('update-user', doc);
               console.log('Updated user ' + req.params.uid + ' to state ' + req.params.state);
